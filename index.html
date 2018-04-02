@@ -50,7 +50,7 @@
 		  <h1 class="header-author"><a href="">LiSai</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">仅用作个人记录收藏</p>
+		<p class="header-subtitle">仅用作个人收藏记录</p>
 		
 
 		<nav class="header-menu">
@@ -112,7 +112,7 @@
 			  <h1 class="header-author js-header-author">LiSai</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>仅用作个人记录收藏<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>仅用作个人收藏记录<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -160,6 +160,90 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-收藏AndroidStudio断开svn链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/02/收藏AndroidStudio断开svn链接/">收藏AndroidStudio断开svn链接</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/02/收藏AndroidStudio断开svn链接/" class="archive-article-date">
+  	<time datetime="2018-04-02T02:19:32.236Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>在VCS–&gt;Import Into Version Control,会发现只有Import Into Subversion选项,并没有Share Project(Subversion)这个选项。</li>
+</ul>
+<p><img src="/2018/04/02/收藏AndroidStudio断开svn链接/Users/lisai/AppData/Local/YNote/data/13146976081@163.com/4aa14c7054454a2b93050cdd262cd7be/1ff7e97030a2.png" alt="img"></p>
+<ul>
+<li>解决方案:</li>
+</ul>
+<p>在Project模式下有个.idea文件夹,找到vcs.xml文件,把里面的vcs=”svn”改为vcs=””即可。</p>
+<p><img src="/2018/04/02/收藏AndroidStudio断开svn链接/Users/lisai/AppData/Local/YNote/data/13146976081@163.com/7147c8d81378475cb27e53a3ed8a7316/fd36891ed534.png" alt="img"></p>
+<p>vcs.png</p>
+<ul>
+<li>代码如下：</li>
+</ul>
+<p>&lt;?xml version=”1.0” encoding=”UTF-8”?&gt;<project version="4">  <component name="VcsDirectoryMappings">    <mapping directory="" vcs="">  </mapping></component></project></p>
+<ul>
+<li>改完之后，会发现vcs.xml文件已经消失了，但是去VCS目录下看还是没有Share Project(Subversion)选项，这时候我们就应该去项目目录中，把.svn文件（此文件为隐藏文件）删除，</li>
+</ul>
+<p><img src="/2018/04/02/收藏AndroidStudio断开svn链接/Users/lisai/AppData/Local/YNote/data/13146976081@163.com/b8de4894e953474c9b593d69f65e65a9/7efedccce65a.png" alt="img"></p>
+<p>再回来看就会发现Share Project选项出来了，这时候我们又可以重新提交SVN了。</p>
+<p>文／anhao_chan（简书作者）</p>
+<p>原文链接：<a href="http://www.jianshu.com/p/ad7a99d71e6e" target="_blank" rel="noopener">http://www.jianshu.com/p/ad7a99d71e6e</a></p>
+<p>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/02/收藏AndroidStudio断开svn链接/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-事件分发机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
