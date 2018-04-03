@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Android-JSON-RPC | Lisai的博客</title>
+  <title>收藏OKHttpFinal介绍及使用 | Lisai的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSONRPC(remote protocol call)是一种以json为协议的远程调用服务，具有开发调试简单，多平台通用的特性。">
-<meta name="keywords" content="Android,安卓,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,LiSai">
+  <meta name="description" content="OkHttpFinal简介一个对OkHttp封装的简单易用型HTTP请求和文件下载管理框架。更多详情请查看WIKI  简化OkHttp使用 支持GET,POST,PUT,DELETE,HEAD,PATCH谓词 支持Activity和Fragment生命周期结束后终止请求 支持Download Manager功能 支持文件下载多事件回调 支持返回bean对象 支持返回json String数据 支持">
+<meta name="keywords" content="-OkHttp -OkHttpFinal -Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android-JSON-RPC">
-<meta property="og:url" content="http://yoursite.com/2017/10/30/Android-JSON_RPC使用/index.html">
+<meta property="og:title" content="收藏OKHttpFinal介绍及使用">
+<meta property="og:url" content="http://yoursite.com/2018/04/03/OKHttpFinal介绍及使用/index.html">
 <meta property="og:site_name" content="Lisai的博客">
-<meta property="og:description" content="JSONRPC(remote protocol call)是一种以json为协议的远程调用服务，具有开发调试简单，多平台通用的特性。">
+<meta property="og:description" content="OkHttpFinal简介一个对OkHttp封装的简单易用型HTTP请求和文件下载管理框架。更多详情请查看WIKI  简化OkHttp使用 支持GET,POST,PUT,DELETE,HEAD,PATCH谓词 支持Activity和Fragment生命周期结束后终止请求 支持Download Manager功能 支持文件下载多事件回调 支持返回bean对象 支持返回json String数据 支持">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://yoursite.com/2017/10/30/Android-JSON_RPC使用/JSON_RPC.png">
-<meta property="og:updated_time" content="2018-04-02T05:56:53.068Z">
+<meta property="og:updated_time" content="2018-04-03T05:52:15.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android-JSON-RPC">
-<meta name="twitter:description" content="JSONRPC(remote protocol call)是一种以json为协议的远程调用服务，具有开发调试简单，多平台通用的特性。">
-<meta name="twitter:image" content="http://yoursite.com/2017/10/30/Android-JSON_RPC使用/JSON_RPC.png">
+<meta name="twitter:title" content="收藏OKHttpFinal介绍及使用">
+<meta name="twitter:description" content="OkHttpFinal简介一个对OkHttp封装的简单易用型HTTP请求和文件下载管理框架。更多详情请查看WIKI  简化OkHttp使用 支持GET,POST,PUT,DELETE,HEAD,PATCH谓词 支持Activity和Fragment生命周期结束后终止请求 支持Download Manager功能 支持文件下载多事件回调 支持返回bean对象 支持返回json String数据 支持">
   
     <link rel="alternative" href="/atom.xml" title="Lisai的博客" type="application/atom+xml">
   
@@ -165,54 +163,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android-JSON_RPC使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-OKHttpFinal介绍及使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android-JSON-RPC
+      收藏OKHttpFinal介绍及使用
     </h1>
   
 
         
-        <a href="/2017/10/30/Android-JSON_RPC使用/" class="archive-article-date">
-  	<time datetime="2017-10-30T06:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
+        <a href="/2018/04/03/OKHttpFinal介绍及使用/" class="archive-article-date">
+  	<time datetime="2018-04-03T05:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>JSONRPC(remote protocol call)是一种以<a href="https://baike.baidu.com/item/json" target="_blank" rel="noopener">json</a>为协议的远程调用服务，具有开发调试简单，多平台通用的特性。</p>
-<a id="more"></a>
-</li>
-<li><p>介绍</p>
-<p>json rpc 是一种以json为消息格式的远程调用服务，它是一套允许运行在不同操作系统、不同环境的程序实现基于Internet过程调用的规范和一系列的实现。这种远程过程调用可以使用http作为传输协议，也可以使用其它传输协议，传输的内容是json消息体。</p>
-<p>json rpc 和 xmlrpc相比具有很多优点。首先xmlrpc是以xml作为消息格式，xml具有体积大，格式复杂，传输占用带宽。程序对xml的解析也比较复杂，并且耗费较多服务器资源。json相比xml体积小巧，并且解析相对容易很多。 </p>
-</li>
-</ul>
+        <h1 id="OkHttpFinal简介"><a href="#OkHttpFinal简介" class="headerlink" title="OkHttpFinal简介"></a>OkHttpFinal简介</h1><p>一个对OkHttp封装的简单易用型HTTP请求和文件下载管理框架。更多详情请查看<a href="https://github.com/pengjianbo/OkHttpFinal/wiki" target="_blank" rel="noopener">WIKI</a></p>
 <ul>
-<li><p>Android 使用方法:</p>
-</li>
-<li><ul>
-<li><ol>
-<li><p>需要引入jar包</p>
-<p> <a href="/download/android-json-rpc-0.3.4.jar">点击下载</a></p>
-<p>​</p>
-</li>
-</ol>
-</li>
+<li>简化<a href="https://github.com/square/okhttp" target="_blank" rel="noopener">OkHttp</a>使用</li>
+<li>支持GET,POST,PUT,DELETE,HEAD,PATCH谓词</li>
+<li>支持Activity和Fragment生命周期结束后终止请求</li>
+<li>支持Download Manager功能</li>
+<li>支持文件下载多事件回调</li>
+<li>支持返回bean对象</li>
+<li>支持返回json String数据</li>
+<li>支持返回JsonObject对象</li>
+<li>支持https请求</li>
+<li>支持https证书访问</li>
+<li>支持文件上传</li>
+<li>支持全局params</li>
+<li>支持全局header</li>
+<li>支持http cancel</li>
+<li>……</li>
 </ul>
-</li>
-</ul>
-<ul>
-<li><ol start="2">
-<li>调用<img src="/2017/10/30/Android-JSON_RPC使用/JSON_RPC.png" alt="aa"></li>
-</ol>
-</li>
+<p>#下载OkHttpFinal 下载这个<a href="https://github.com/pengjianbo/OkHttpFinal/tree/master/downloads" target="_blank" rel="noopener">JAR</a> 或者通过Gradle抓取:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile &apos;cn.finalteam:okhttpfinal:2.0.7&apos;</span><br></pre></td></tr></table></figure>
+<p>##eclipse使用 下载OkHttpFinal对应的<a href="https://github.com/pengjianbo/OkHttpFinal/tree/master/downloads" target="_blank" rel="noopener">Jar</a> 和下载依赖<a href="https://github.com/pengjianbo/OkHttpFinal/tree/master/downloads/extra" target="_blank" rel="noopener">Extra Jar</a></p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>1、在你App Application中初始化OkHttpFinal(此初始化只是简单赋值不会阻塞线程)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();</span><br><span class="line">OkHttpFinal.getInstance().init(builder.build());</span><br></pre></td></tr></table></figure>
+<p>2、请求接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">List&lt;File&gt; files = new ArrayList&lt;&gt;();</span><br><span class="line">File file = new File(&quot;...&quot;);</span><br><span class="line">RequestParams params = new RequestParams(this);//请求参数</span><br><span class="line">params.addFormDataPart(&quot;username&quot;, mUserName);//表单数据</span><br><span class="line">params.addFormDataPart(&quot;password&quot;, mPassword);//表单数据</span><br><span class="line">params.addFormDataPart(&quot;file&quot;, file);//上传单个文件</span><br><span class="line">params.addFormDataPart(&quot;files&quot;, files);//上传多个文件</span><br><span class="line">params.addHeader(&quot;token&quot;, token);//添加header信息</span><br><span class="line">HttpRequest.post(Api.LOGIN, params, new BaseHttpRequestCallback&lt;LoginResponse&gt;() &#123;</span><br><span class="line"></span><br><span class="line">//请求网络前</span><br><span class="line">@Override</span><br><span class="line">public void onStart() &#123;</span><br><span class="line">	buildProgressDialog().show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//这里只是网络请求成功了（也就是服务器返回JSON合法）没有没有分装具体的业务成功与失败，大家可以参考demo去分装自己公司业务请求成功与失败</span><br><span class="line">@Override</span><br><span class="line">protected void onSuccess(LoginResponse loginResponse) &#123;</span><br><span class="line">	toast(loginResponse.getMsg());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//请求失败（服务返回非法JSON、服务器异常、网络异常）</span><br><span class="line">@Override</span><br><span class="line">public void onFailure(int errorCode, String msg) &#123;</span><br><span class="line">	toast(&quot;网络异常~，请检查你的网络是否连接后再试&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">//请求网络结束   </span><br><span class="line">@Override</span><br><span class="line">public void onFinish() &#123;</span><br><span class="line">    dismissProgressDialog();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">String url = &quot;http://219.128.78.33/apk.r1.market.hiapk.com/data/upload/2015/05_20/14/com.speedsoftware.rootexplorer_140220.apk&quot;;</span><br><span class="line">File saveFile = new File(&quot;/sdcard/rootexplorer_140220.apk&quot;);</span><br><span class="line">HttpRequest.download(url, saveFile, new FileDownloadCallback() &#123;</span><br><span class="line">    //开始下载</span><br><span class="line">    @Override </span><br><span class="line">    public void onStart() &#123;</span><br><span class="line">        super.onStart();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	//下载进度</span><br><span class="line">    @Override</span><br><span class="line">    public void onProgress(int progress, long networkSpeed) &#123;</span><br><span class="line">        super.onProgress(progress, networkSpeed);</span><br><span class="line">        mPbDownload.setProgress(progress);</span><br><span class="line">        //String speed = FileUtils.generateFileSize(networkSpeed);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	//下载失败</span><br><span class="line">    @Override </span><br><span class="line">    public void onFailure() &#123;</span><br><span class="line">        super.onFailure();</span><br><span class="line">        Toast.makeText(getBaseContext(), &quot;下载失败&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	//下载完成（下载成功）</span><br><span class="line">    @Override </span><br><span class="line">    public void onDone() &#123;</span><br><span class="line">        super.onDone();</span><br><span class="line">        Toast.makeText(getBaseContext(), &quot;下载成功&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>更多功能请查看WIKI</strong></p>
+<h1 id="代码混淆"><a href="#代码混淆" class="headerlink" title="代码混淆"></a>代码混淆</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#--------------- BEGIN: okhttp ----------</span><br><span class="line">-keepattributes Signature</span><br><span class="line">-keepattributes *Annotation*</span><br><span class="line">-keep class com.squareup.okhttp.** &#123; *; &#125;</span><br><span class="line">-keep interface com.squareup.okhttp.** &#123; *; &#125;</span><br><span class="line">-dontwarn com.squareup.okhttp.**</span><br><span class="line">#--------------- END: okhttp ----------</span><br><span class="line">#--------------- BEGIN: okio ----------</span><br><span class="line">-keep class sun.misc.Unsafe &#123; *; &#125;</span><br><span class="line">-dontwarn java.nio.file.*</span><br><span class="line">-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement</span><br><span class="line">-dontwarn okio.**</span><br><span class="line">#--------------- END: okio ----------</span><br></pre></td></tr></table></figure>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a><a href="https://github.com/pengjianbo/OkHttpFinal/tree/master/CHANGELOG.md" target="_blank" rel="noopener">更新日志</a></h3><h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><ul>
+<li><strong>QQ:</strong>172340021</li>
+<li><strong>QQ群:</strong>218801658</li>
+<li><strong>Email:</strong><a href="mailto:pengjianbo@finalteam.cn" target="_blank" rel="noopener">pengjianbo@finalteam.cn</a></li>
 </ul>
 
       
@@ -222,6 +224,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-OkHttp -OkHttpFinal -Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -272,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/30/Android-JSON_RPC使用/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/03/OKHttpFinal介绍及使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,15 +299,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/30/Android注解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/03/Markdown语法说明/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Android注解
+          Markdown语法说明
         
       </div>
     </a>
   
+  
+    <a href="/2018/04/03/腾讯浏览服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">腾讯浏览服务</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -326,7 +344,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android-JSON_RPC使用" data-title="Android-JSON-RPC" data-url="http://yoursite.com/2017/10/30/Android-JSON_RPC使用/"></div>
+	<div class="ds-thread" data-thread-key="OKHttpFinal介绍及使用" data-title="收藏OKHttpFinal介绍及使用" data-url="http://yoursite.com/2018/04/03/OKHttpFinal介绍及使用/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -349,8 +367,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/10/30/Android-JSON_RPC使用/", 
-    sourceId: "Android-JSON_RPC使用",
+    url: "http://yoursite.com/2018/04/03/OKHttpFinal介绍及使用/", 
+    sourceId: "OKHttpFinal介绍及使用",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
