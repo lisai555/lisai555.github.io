@@ -6,41 +6,41 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://lisai.vip">
   <title>收藏事件分发机制 | Lisai的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在Android开发中，事件分发机制是一块Android比较重要的知识体系，了解并熟悉整套的分发机制有助于更好的分析各种点击滑动失效问题，更好去扩展控件的事件功能和开发自定义控件，同时事件分发机制也是Android面试必问考点之一，如果你能把下面的一些事件分发图当场画出来肯定加分不少。废话不多说，总结一句:事件分发机制很重要。">
 <meta name="keywords" content="Android,安卓,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,LiSai">
 <meta property="og:type" content="article">
 <meta property="og:title" content="收藏事件分发机制">
-<meta property="og:url" content="http://yoursite.com/2018/03/30/事件分发机制/index.html">
+<meta property="og:url" content="http://lisai.vip/2018/03/30/事件分发机制/index.html">
 <meta property="og:site_name" content="Lisai的博客">
 <meta property="og:description" content="在Android开发中，事件分发机制是一块Android比较重要的知识体系，了解并熟悉整套的分发机制有助于更好的分析各种点击滑动失效问题，更好去扩展控件的事件功能和开发自定义控件，同时事件分发机制也是Android面试必问考点之一，如果你能把下面的一些事件分发图当场画出来肯定加分不少。废话不多说，总结一句:事件分发机制很重要。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-b9cb65aceea9219b.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-d01a5845f7426097.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-84c37551ad520641.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-6bc8e2795a30f98f.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-7f3ab9e7e7a1f0a2.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-403f6e8b820f71f1.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-4edf17b789cd047f.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-59e3eb0d827f105c.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-1784be236d2060fb.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-f1d9edbc21e955c8.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-d53e3f680ba1fdd1.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-e1e9739c0826f9f3.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-e78685608fced6a0.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-b122baf33744975d.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-c1840919f1c95447.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-7026c3e2fc1b0fa8.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-4757fd1879a9ba4e.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-1b11afac93b12c53.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-4713e647448ce48f.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-b9cb65aceea9219b.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-d01a5845f7426097.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-84c37551ad520641.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-6bc8e2795a30f98f.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-7f3ab9e7e7a1f0a2.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-403f6e8b820f71f1.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-4edf17b789cd047f.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-59e3eb0d827f105c.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-1784be236d2060fb.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-f1d9edbc21e955c8.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-d53e3f680ba1fdd1.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-e1e9739c0826f9f3.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-e78685608fced6a0.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-b122baf33744975d.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-c1840919f1c95447.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-7026c3e2fc1b0fa8.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-4757fd1879a9ba4e.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-1b11afac93b12c53.png">
+<meta property="og:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-4713e647448ce48f.png">
 <meta property="og:updated_time" content="2018-04-02T05:58:13.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="收藏事件分发机制">
 <meta name="twitter:description" content="在Android开发中，事件分发机制是一块Android比较重要的知识体系，了解并熟悉整套的分发机制有助于更好的分析各种点击滑动失效问题，更好去扩展控件的事件功能和开发自定义控件，同时事件分发机制也是Android面试必问考点之一，如果你能把下面的一些事件分发图当场画出来肯定加分不少。废话不多说，总结一句:事件分发机制很重要。">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/30/事件分发机制/966283-b9cb65aceea9219b.png">
+<meta name="twitter:image" content="http://lisai.vip/2018/03/30/事件分发机制/966283-b9cb65aceea9219b.png">
   
     <link rel="alternative" href="/atom.xml" title="Lisai的博客" type="application/atom+xml">
   
@@ -391,7 +391,7 @@ ViewGroup2 | dispatchTouchEvent --&gt; ACTION_UP
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/30/事件分发机制/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://lisai.vip/2018/03/30/事件分发机制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -462,7 +462,7 @@ ViewGroup2 | dispatchTouchEvent --&gt; ACTION_UP
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2018/03/30/事件分发机制/",
+  id: "http://lisai.vip/2018/03/30/事件分发机制/",
   owner: 'lisai555',
   repo: 'lisai555.github.io',
   oauth: {
