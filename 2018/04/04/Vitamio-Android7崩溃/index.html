@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Lisai的博客">
 <meta property="og:description" content="Vitamio是一款 Android 与 iOS 平台上的全能多媒体开发框架，全面支持硬件解码与 GPU 渲染。从2011年8月上线到2014年1月，Vitamio 凭借其简洁易用的 API 接口赢得了全球众多开发者的青睐，全球已经有超过3000 种应用在使用Vitamio，覆盖用户超过5亿。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-04-04T03:41:47.107Z">
+<meta property="og:updated_time" content="2018-04-04T03:44:10.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vitamio Android7崩溃">
 <meta name="twitter:description" content="Vitamio是一款 Android 与 iOS 平台上的全能多媒体开发框架，全面支持硬件解码与 GPU 渲染。从2011年8月上线到2014年1月，Vitamio 凭借其简洁易用的 API 接口赢得了全球众多开发者的青睐，全球已经有超过3000 种应用在使用Vitamio，覆盖用户超过5亿。">
@@ -193,10 +193,10 @@
 <p>Vitamio5.02更新android7牛轧糖崩溃</p>
 <p> java.lang.UnsatisfiedLinkError：期望库的绝对路径：libstlport_shared.so </p>
 <p>阅读mediaplyer.java你会看到Vitamio添加检查SDK_INT在：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public MediaPlayer(Context ctx, boolean preferHWDecoder) &#123;</span><br><span class="line">	mContext = ctx; </span><br><span class="line">	String LIB_ROOT; </span><br><span class="line">	if(VERSION.SDK_INT &gt; 20) &#123;</span><br><span class="line">    	LIB_ROOT = &quot;&quot;; </span><br><span class="line">    &#125; else&#123; </span><br><span class="line">    	LIB_ROOT = Vitamio.getLibraryPath(); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public MediaPlayer(Context ctx, boolean preferHWDecoder) &#123;</span><br><span class="line">	mContext = ctx; </span><br><span class="line">	String LIB_ROOT;</span><br><span class="line">	if(VERSION.SDK_INT &gt; 20) &#123;</span><br><span class="line">    	LIB_ROOT = &quot;&quot;; </span><br><span class="line">    &#125; else&#123; </span><br><span class="line">    	LIB_ROOT = Vitamio.getLibraryPath(); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>即使SDK_INT&gt; 20，不同手机的实现的库路径可能不同，因此可能会触发java.lang.UnsatisfiedLinkError。 </p>
 <p>要解决它，修改load_lib库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">private static boolean load_lib(String path, String name)&#123; </span><br><span class="line">// if(path==&quot;&quot;)&#123; </span><br><span class="line">// // System.load(name); </span><br><span class="line">// &#125;</span><br><span class="line">// else&#123; </span><br><span class="line">// System.load(path + name);</span><br><span class="line">// &#125; </span><br><span class="line">	String libraries[] = &#123;name,Vitamio.getLibraryPath() + name&#125;;</span><br><span class="line">	boolean success = false; </span><br><span class="line">	for(String library : libraries) &#123;</span><br><span class="line">		try&#123; </span><br><span class="line">			System.load(library); </span><br><span class="line">			success = true;</span><br><span class="line">			break;</span><br><span class="line">		&#125; catch(UnsatisfiedLinkError e) &#123;</span><br><span class="line">    </span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	return true; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">private static boolean load_lib(String path, String name)&#123; </span><br><span class="line">    // if(path==&quot;&quot;)&#123; </span><br><span class="line">    // // System.load(name); </span><br><span class="line">    // &#125;</span><br><span class="line">    // else&#123; </span><br><span class="line">    // System.load(path + name);</span><br><span class="line">    // &#125; </span><br><span class="line">	String libraries[] = &#123;name,Vitamio.getLibraryPath() + name&#125;;</span><br><span class="line">	boolean success = false; </span><br><span class="line">	for(String library : libraries) &#123;</span><br><span class="line">		try&#123; </span><br><span class="line">			System.load(library); </span><br><span class="line">			success = true;</span><br><span class="line">			break;</span><br><span class="line">		&#125; catch(UnsatisfiedLinkError e) &#123;</span><br><span class="line">    </span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	return true; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>来自 github：yixia/VitamioBundle</p>
 
       
@@ -444,23 +444,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">-Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-annotation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,7 +456,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-OkHttpFinal</a>
+                <a href="javascript:void(0)" class="js-tag color4">-注解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">-annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-文档</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,6 +477,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">-md</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-OkHttpFinal</a>
               </li>
              
               <li class="article-tag-list-item">
